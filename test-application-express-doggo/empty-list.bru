@@ -1,0 +1,16 @@
+meta {
+  name: empty-list
+  type: http
+  seq: 11
+}
+
+get {
+  url: http://localhost:3000/todosums
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 400
+  res.body: eq List is empty
+}

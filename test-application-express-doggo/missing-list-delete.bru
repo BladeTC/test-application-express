@@ -1,0 +1,16 @@
+meta {
+  name: missing-list-delete
+  type: http
+  seq: 15
+}
+
+delete {
+  url: http://localhost:3000/todosums
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 400
+  res.body: eq List is already empty
+}

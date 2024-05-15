@@ -1,0 +1,15 @@
+meta {
+  name: delete-todosums
+  type: http
+  seq: 7
+}
+
+delete {
+  url: http://localhost:3000/todosums
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+}

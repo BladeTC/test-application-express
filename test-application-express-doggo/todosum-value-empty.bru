@@ -1,0 +1,20 @@
+meta {
+  name: todosum-value-empty
+  type: http
+  seq: 8
+}
+
+post {
+  url: http://localhost:3000/todosums
+  body: json
+  auth: none
+}
+
+body:json {
+  {"value":""}
+}
+
+assert {
+  res.status: eq 400
+  res.body: eq value must contain at least one letter
+}

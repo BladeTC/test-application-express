@@ -1,0 +1,20 @@
+meta {
+  name: todosum-value-int
+  type: http
+  seq: 9
+}
+
+post {
+  url: http://localhost:3000/todosums
+  body: json
+  auth: none
+}
+
+body:json {
+  {"value":1}
+}
+
+assert {
+  res.status: eq 400
+  res.body: eq value must be a string
+}

@@ -1,0 +1,16 @@
+meta {
+  name: missing-element-delete
+  type: http
+  seq: 14
+}
+
+delete {
+  url: http://localhost:3000/todosums/1000
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 400
+  res.body: eq Element does not exist
+}

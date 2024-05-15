@@ -1,0 +1,30 @@
+meta {
+  name: get-todosums
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:3000/todosums
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+}
+
+tests {
+  test("should be an array", function() {
+    const data = res.getBody();
+    expect(data).to.be.an('array');
+  });
+  
+  test("all eements should be string",function() {
+    let bul = true;
+    const data = res.getBody();
+    for(let e of data){
+    expect(e).to.be.a('string');
+    }
+  })
+}
